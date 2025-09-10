@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(52, 9%, 98%);
+  --foreground: hsl(222, 84%, 5%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 5%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 5%);
+  --primary: hsl(158, 64%, 52%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(220, 14%, 96%);
+  --secondary-foreground: hsl(220, 9%, 46%);
+  --muted: hsl(220, 14%, 96%);
+  --muted-foreground: hsl(220, 9%, 46%);
+  --accent: hsl(37, 91%, 55%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --ring: hsl(158, 64%, 52%);
+  --chart-1: hsl(158, 64%, 52%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(220, 14%, 96%);
+  --sidebar-foreground: hsl(220, 9%, 46%);
+  --sidebar-primary: hsl(158, 64%, 52%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(220, 14%, 96%);
+  --sidebar-accent-foreground: hsl(158, 64%, 52%);
+  --sidebar-border: hsl(220, 13%, 91%);
+  --sidebar-ring: hsl(158, 64%, 52%);
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00), 0px 1px 2px -1px hsl(158, 64%, 52%, 0.00);
+  --shadow: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00), 0px 1px 2px -1px hsl(158, 64%, 52%, 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00), 0px 2px 4px -1px hsl(158, 64%, 52%, 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00), 0px 4px 6px -1px hsl(158, 64%, 52%, 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00), 0px 8px 10px -1px hsl(158, 64%, 52%, 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(158, 64%, 52%, 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(200, 7%, 91%);
+  --card: hsl(228, 10%, 10%);
+  --card-foreground: hsl(0, 0%, 85%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(200, 7%, 91%);
+  --primary: hsl(158, 64%, 52%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(195, 15%, 95%);
+  --secondary-foreground: hsl(210, 25%, 8%);
+  --muted: hsl(0, 0%, 9%);
+  --muted-foreground: hsl(210, 3%, 46%);
+  --accent: hsl(37, 91%, 55%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(210, 5%, 15%);
+  --input: hsl(208, 28%, 18%);
+  --ring: hsl(158, 64%, 52%);
+  --chart-1: hsl(158, 64%, 52%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(228, 10%, 10%);
+  --sidebar-foreground: hsl(0, 0%, 85%);
+  --sidebar-primary: hsl(158, 64%, 52%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(228, 10%, 10%);
+  --sidebar-accent-foreground: hsl(158, 64%, 52%);
+  --sidebar-border: hsl(210, 5%, 15%);
+  --sidebar-ring: hsl(158, 64%, 52%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gallery-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .gallery-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
