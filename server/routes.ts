@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertInquirySchema } from "@shared/schema";
+import { sendNewInquiryNotification } from "./emailService";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -10,6 +11,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertInquirySchema.parse(req.body);
       const inquiry = await storage.createInquiry(validatedData);
+      
+      // Send email notification
+      try {
+        await sendNewInquiryNotification(inquiry);
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+        // Don't fail the request if email fails
+      }
+      
       res.json({ success: true, inquiry });
     } catch (error) {
       if (error instanceof z.ZodError) {
