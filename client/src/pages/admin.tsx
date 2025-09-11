@@ -29,6 +29,14 @@ export default function AdminPage() {
     enabled: isAuthenticated,
   });
 
+  // Handle 401 errors by automatically logging out
+  useEffect(() => {
+    if (error && error.message.includes('401')) {
+      console.log('Invalid admin token, logging out...');
+      handleLogout();
+    }
+  }, [error]);
+
   const inquiries = inquiriesData?.inquiries || [];
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -142,7 +150,21 @@ export default function AdminPage() {
       <div className="min-h-screen bg-background p-6">
         <div className="container mx-auto">
           <div className="text-center py-20">
-            <p className="text-destructive">Error loading inquiries. Please try again.</p>
+            <p className="text-destructive mb-4" data-testid="text-error-message">
+              Error loading inquiries. Please try again.
+            </p>
+            <div className="flex gap-2 justify-center">
+              <Button onClick={handleLogout} variant="outline" data-testid="button-logout-error">
+                <LockIcon className="mr-2 h-4 w-4" />
+                Logout
+              </Button>
+              <Link href="/">
+                <Button variant="ghost" data-testid="button-back-to-site-error">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Site
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
