@@ -973,7 +973,16 @@ export default function HomePage() {
           </div>
           
           <div className="border-t border-background/20 mt-8 pt-8 text-center">
-            <p className="text-background/60" data-testid="text-copyright">&copy; 2024 Mountain Retreat. All rights reserved.</p>
+            <div className="flex justify-between items-center">
+              <p className="text-background/60" data-testid="text-copyright">&copy; 2024 Mountain Retreat. All rights reserved.</p>
+              <button 
+                onClick={() => window.location.href = '/admin'}
+                className="text-background/40 hover:text-background/60 text-xs transition-colors"
+                data-testid="link-admin"
+              >
+                Admin
+              </button>
+            </div>
           </div>
         </div>
       </footer>
