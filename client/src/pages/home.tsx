@@ -40,6 +40,7 @@ import {
   Facebook,
   Instagram,
   Twitter,
+  MessageCircle,
   Palette,
   Drama,
   Store
@@ -106,7 +107,7 @@ export default function HomePage() {
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold text-primary flex items-center">
               <Mountain className="mr-2 h-8 w-8" />
-              Mountain Retreat
+              D'Desaru
             </div>
             <div className="hidden md:flex space-x-8">
               <button 
@@ -768,7 +769,7 @@ export default function HomePage() {
                           <FormItem>
                             <FormLabel>Phone Number</FormLabel>
                             <FormControl>
-                              <Input type="tel" placeholder="+1 (555) 123-4567" {...field} data-testid="input-phone" />
+                              <Input type="tel" placeholder="+1 (555) 123-4567" {...field} value={field.value ?? ""} data-testid="input-phone" />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -784,7 +785,7 @@ export default function HomePage() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Input type="date" {...field} data-testid="input-check-in" />
+                                  <Input type="date" {...field} value={field.value ?? ""} data-testid="input-check-in" />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -796,7 +797,7 @@ export default function HomePage() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Input type="date" {...field} data-testid="input-check-out" />
+                                  <Input type="date" {...field} value={field.value ?? ""} data-testid="input-check-out" />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -925,14 +926,17 @@ export default function HomePage() {
               </div>
               <p className="text-background/80 mb-4" data-testid="text-footer-description">Experience luxury in the heart of the Rocky Mountains.</p>
               <div className="flex space-x-4">
-                <a href="#" className="text-background/60 hover:text-primary transition-colors" data-testid="link-facebook">
+                <a href="https://www.facebook.com/ahmad.hamizan.9828" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-colors" data-testid="link-facebook">
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-background/60 hover:text-primary transition-colors" data-testid="link-instagram">
+                <a href="https://www.instagram.com/hamizan99?igsh=anNyNXBkYWMyZmVj" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-colors" data-testid="link-instagram">
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="text-background/60 hover:text-primary transition-colors" data-testid="link-twitter">
                   <Twitter className="h-5 w-5" />
+                </a>
+                <a href="https://wa.me/60142770607" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary transition-colors" data-testid="link-whatsapp">
+                  <MessageCircle className="h-5 w-5" />
                 </a>
               </div>
             </div>
