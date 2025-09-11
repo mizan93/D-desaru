@@ -1,7 +1,11 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { queryClient } from "@/lib/queryClient";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { type Inquiry } from "@shared/schema";
 import { 
   CalendarIcon, 
@@ -10,16 +14,115 @@ import {
   UserIcon,
   MessageSquareIcon,
   HomeIcon,
-  ArrowLeft
+  ArrowLeft,
+  LockIcon
 } from "lucide-react";
 import { Link } from "wouter";
 
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [adminPassword, setAdminPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
+  
   const { data: inquiriesData, isLoading, error } = useQuery<{ success: boolean; inquiries: Inquiry[] }>({
     queryKey: ["/api/inquiries"],
+    enabled: isAuthenticated,
   });
 
   const inquiries = inquiriesData?.inquiries || [];
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError("");
+    
+    // Test the credentials by making a request
+    try {
+      const response = await fetch("/api/inquiries", {
+        headers: {
+          'Authorization': `Bearer ${adminPassword}`
+        }
+      });
+      
+      if (response.ok) {
+        setIsAuthenticated(true);
+        localStorage.setItem("adminAuth", adminPassword);
+      } else {
+        setLoginError("Invalid admin password. Please try again.");
+      }
+    } catch (err) {
+      setLoginError("Login failed. Please try again.");
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setAdminPassword("");
+    localStorage.removeItem("adminAuth");
+    // Clear cached admin data
+    queryClient.removeQueries({ queryKey: ["/api/inquiries"] });
+  };
+
+  // Check for stored auth on component mount
+  useEffect(() => {
+    const storedAuth = localStorage.getItem("adminAuth");
+    if (storedAuth) {
+      setAdminPassword(storedAuth);
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  // Show login form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center p-6">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-center flex items-center justify-center">
+              <LockIcon className="h-6 w-6 mr-2" />
+              Admin Access Required
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <Label htmlFor="admin-password">Admin Password</Label>
+                <Input
+                  id="admin-password"
+                  type="password"
+                  value={adminPassword}
+                  onChange={(e) => setAdminPassword(e.target.value)}
+                  placeholder="Enter admin password"
+                  data-testid="input-admin-password"
+                  required
+                />
+              </div>
+              {loginError && (
+                <p className="text-sm text-destructive" data-testid="text-login-error">
+                  {loginError}
+                </p>
+              )}
+              <Button type="submit" className="w-full" data-testid="button-login">
+                Login
+              </Button>
+            </form>
+            <div className="mt-4 p-3 bg-muted rounded-lg">
+              <p className="text-xs text-muted-foreground">
+                <em>Admin password can be configured via ADMIN_PASSWORD environment variable</em>
+              </p>
+            </div>
+            <div className="mt-4 text-center">
+              <Link href="/">
+                <Button variant="ghost" data-testid="button-back-to-site-login">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Site
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -59,12 +162,18 @@ export default function AdminPage() {
               Manage and respond to guest inquiries for Mountain Retreat
             </p>
           </div>
-          <Link href="/">
-            <Button variant="outline" data-testid="button-back-to-site">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Site
+          <div className="flex gap-2">
+            <Link href="/">
+              <Button variant="outline" data-testid="button-back-to-site">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Site
+              </Button>
+            </Link>
+            <Button variant="outline" onClick={handleLogout} data-testid="button-logout">
+              <LockIcon className="mr-2 h-4 w-4" />
+              Logout
             </Button>
-          </Link>
+          </div>
         </div>
 
         {/* Stats */}

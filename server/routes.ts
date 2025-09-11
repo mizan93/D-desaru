@@ -37,8 +37,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get all inquiries endpoint
-  app.get("/api/inquiries", async (req, res) => {
+  // Simple admin authentication middleware
+  const adminAuth = (req: any, res: any, next: any) => {
+    const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+    const authHeader = req.headers.authorization;
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ 
+        success: false, 
+        error: "Admin access required - please provide authorization" 
+      });
+    }
+    
+    const token = authHeader.substring(7);
+    if (token !== adminPassword) {
+      return res.status(401).json({ 
+        success: false, 
+        error: "Invalid admin credentials" 
+      });
+    }
+    
+    next();
+  };
+
+  // Protected admin endpoint to get all inquiries
+  app.get("/api/inquiries", adminAuth, async (req, res) => {
     try {
       const inquiries = await storage.getInquiries();
       res.json({ success: true, inquiries });
