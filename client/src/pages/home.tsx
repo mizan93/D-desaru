@@ -983,7 +983,7 @@ export default function HomePage() {
           
           <div className="border-t border-background/20 mt-8 pt-8 text-center">
             <div className="flex justify-between items-center">
-              <p className="text-background/60" data-testid="text-copyright">&copy; 2024 Mountain Retreat. All rights reserved.</p>
+              <p className="text-background/60" data-testid="text-copyright">&copy; 2025 D'Desaru. All rights reserved.</p>
               <button 
                 onClick={() => window.location.href = '/admin'}
                 className="text-background/40 hover:text-background/60 text-xs transition-colors"
