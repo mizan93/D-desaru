@@ -365,29 +365,35 @@ export default function HomePage() {
               </TabsList>
               
               <TabsContent value="outdoor" className="mt-6">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-6">
                   {[
                     { 
-                      image: "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
-                      title: "Summit Trail",
-                      distance: "5.2 miles • Moderate",
-                      description: "Breathtaking 360° mountain views"
+                      image: image.waterpark,
+                      title: "Adventure Waterpark Desaru Coast",
+                      distance: "5.2 km • Moderate",
+                      description: "Breathtaking Amazing Roller Coster"
                     },
                     { 
-                      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
-                      title: "Alpine Ski Resort",
+                      image: image.crocfarm,
+                      title: "Teluk Sengat Crocodile Farm",
                       distance: "12 minutes drive",
                       description: "World-class skiing and snowboarding"
                     },
                     { 
-                      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
-                      title: "Crystal Lake",
+                      image: image.tour,
+                      title: "Desaru Mangrove Tour",
                       distance: "8 minutes drive",
                       description: "Kayaking, fishing, and swimming"
                     },
                     { 
                       image: "https://images.unsplash.com/photo-1464822759844-d150baec0d56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
                       title: "Eagle's Peak",
+                      distance: "15 minutes hike",
+                      description: "Historic lookout point and wildlife viewing"
+                    },
+                    { 
+                      image: image.background,
+                      title: "Tanjung Balau",
                       distance: "15 minutes hike",
                       description: "Historic lookout point and wildlife viewing"
                     }
