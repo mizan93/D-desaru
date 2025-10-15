@@ -174,7 +174,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="text-lg font-semibold px-8 py-4" data-testid="button-book-now">
-                Book Now - $299/night
+                Book Now - RM299/night
               </Button>
               <Button variant="outline" size="lg" className="text-lg font-semibold px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-foreground" data-testid="button-virtual-tour">
                 Take Virtual Tour
@@ -290,7 +290,7 @@ export default function HomePage() {
               
               <Card className="bg-accent/10 border-accent/20">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-accent-foreground mb-2" data-testid="text-price">Starting at $299/night</h3>
+                  <h3 className="text-xl font-semibold text-accent-foreground mb-2" data-testid="text-price">Starting at RM299/night</h3>
                   <p className="text-muted-foreground mb-4">Includes all amenities, cleaning service, and concierge support</p>
                   <Button data-testid="button-check-availability">Check Availability</Button>
                 </CardContent>
