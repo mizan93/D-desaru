@@ -167,10 +167,10 @@ export default function HomePage() {
         <div className="relative container mx-auto px-4 h-full flex items-center">
           <div className="max-w-3xl text-white">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight" data-testid="text-hero-title">
-              Luxury Mountain Retreat
+              The Beauty of Desaru Beach
             </h1>
             <p className="text-xl md:text-2xl mb-8 opacity-90" data-testid="text-hero-description">
-              Experience unparalleled comfort in our stunning mountain sanctuary. Perfect for families, couples, and adventurers seeking tranquility.
+              Experience unparalleled comfort in our stunning beach. Perfect for families, couples, and adventurers seeking tranquility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="text-lg font-semibold px-8 py-4" data-testid="button-book-now">
