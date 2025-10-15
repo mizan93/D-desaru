@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Mountain Retreat - Property Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                }
+            },
+            fontFamily: {
+                sans: ["Inter", "system-ui", "sans-serif"],
+            }
+        }
+    };
+    </script>
+    <style>
+        :root {
+            --background: hsl(52 9% 98%);
+            --foreground: hsl(222 84% 5%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222 84% 5%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222 84% 5%);
+            --primary: hsl(158 64% 52%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(220 14% 96%);
+            --secondary-foreground: hsl(220 9% 46%);
+            --muted: hsl(220 14% 96%);
+            --muted-foreground: hsl(220 9% 46%);
+            --accent: hsl(37 91% 55%);
+            --accent-foreground: hsl(222 84% 5%);
+            --destructive: hsl(0 84% 60%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(220 13% 91%);
+            --input: hsl(220 13% 91%);
+            --ring: hsl(158 64% 52%);
+            --radius: 0.75rem;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .gallery-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .floating-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background text-foreground smooth-scroll">
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-primary">
+                    <i class="fas fa-mountain mr-2"></i>
+                    Mountain Retreat
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-secondary-foreground hover:text-primary transition-colors">Overview</a>
+                    <a href="#gallery" class="text-secondary-foreground hover:text-primary transition-colors">Gallery</a>
+                    <a href="#facilities" class="text-secondary-foreground hover:text-primary transition-colors">Facilities</a>
+                    <a href="#location" class="text-secondary-foreground hover:text-primary transition-colors">Location</a>
+                    <a href="#reviews" class="text-secondary-foreground hover:text-primary transition-colors">Reviews</a>
+                    <a href="#contact" class="text-secondary-foreground hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button class="md:hidden text-primary">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- A stunning mountain retreat exterior with wooden architecture and panoramic mountain views -->
+    <section class="relative h-screen bg-cover bg-center parallax" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080');">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative container mx-auto px-4 h-full flex items-center">
+            <div class="max-w-3xl text-white">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Luxury Mountain Retreat
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Experience unparalleled comfort in our stunning mountain sanctuary. Perfect for families, couples, and adventurers seeking tranquility.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                        Book Now - $299/night
+                    </button>
+                    <button class="border-2 border-white text-white hover:bg-white hover:text-foreground px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                        Take Virtual Tour
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Manual - Top -->
+    <section id="facilities-top" class="py-16 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Property Facilities Guide</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">Everything you need to know about our premium amenities and services</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-wifi text-primary-foreground text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">High-Speed WiFi</h3>
+                    <p class="text-muted-foreground">Complimentary fiber-optic internet throughout the property. Perfect for remote work and streaming.</p>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-hot-tub text-primary-foreground text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Private Hot Tub</h3>
+                    <p class="text-muted-foreground">Relax in our heated outdoor hot tub with panoramic mountain views. Available 24/7.</p>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-utensils text-primary-foreground text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Gourmet Kitchen</h3>
+                    <p class="text-muted-foreground">Fully equipped kitchen with premium appliances, perfect for preparing meals with local ingredients.</p>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-parking text-primary-foreground text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Free Parking</h3>
+                    <p class="text-muted-foreground">Secure parking for up to 3 vehicles. EV charging station available upon request.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Overview -->
+    <section id="overview" class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-foreground mb-6">Your Perfect Mountain Getaway</h2>
+                    <p class="text-lg text-muted-foreground mb-6 leading-relaxed">
+                        Nestled in the heart of the Rocky Mountains, our luxury retreat offers an unparalleled blend of rustic charm and modern sophistication. With panoramic mountain views, premium amenities, and access to world-class outdoor activities, this is your gateway to adventure and relaxation.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-bed text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">4 Bedrooms</div>
+                                <div class="text-sm text-muted-foreground">Sleeps up to 8</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-bath text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">3 Bathrooms</div>
+                                <div class="text-sm text-muted-foreground">All en-suite</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-home text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">3,200 sq ft</div>
+                                <div class="text-sm text-muted-foreground">Spacious layout</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">5-Star Rating</div>
+                                <div class="text-sm text-muted-foreground">148 reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-accent/10 p-6 rounded-lg border border-accent/20">
+                        <h3 class="text-xl font-semibold text-accent-foreground mb-2">Starting at $299/night</h3>
+                        <p class="text-muted-foreground mb-4">Includes all amenities, cleaning service, and concierge support</p>
+                        <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-semibold transition-all">
+                            Check Availability
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- A modern luxury living room with floor-to-ceiling windows and mountain views -->
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Luxury living room with mountain views" class="rounded-xl shadow-lg w-full h-auto gallery-image" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="py-20 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Property Gallery</h2>
+                <p class="text-xl text-muted-foreground">Explore every corner of your mountain retreat</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- A spacious modern living room with neutral tones and comfortable seating -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Modern living room" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Living Room</span>
+                    </div>
+                </div>
+                
+                <!-- A elegant modern living room with large windows and contemporary furniture -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Elegant living space" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Entertainment Area</span>
+                    </div>
+                </div>
+                
+                <!-- A bright and airy modern living room with minimalist design -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Bright modern living room" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Open Living Space</span>
+                    </div>
+                </div>
+                
+                <!-- A minimalist modern living room with clean lines and neutral colors -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Minimalist living room" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Lounge Area</span>
+                    </div>
+                </div>
+                
+                <!-- A cozy bedroom with warm lighting and comfortable bedding -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Cozy master bedroom" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Master Bedroom</span>
+                    </div>
+                </div>
+                
+                <!-- A serene bedroom setup with natural lighting and modern furnishings -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Serene guest bedroom" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Guest Bedroom</span>
+                    </div>
+                </div>
+                
+                <!-- A peaceful bedroom with mountain view windows and elegant decor -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Bedroom with mountain views" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Mountain View Room</span>
+                    </div>
+                </div>
+                
+                <!-- A modern kitchen with stainless steel appliances and granite countertops -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Modern gourmet kitchen" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Gourmet Kitchen</span>
+                    </div>
+                </div>
+                
+                <!-- A luxurious kitchen with marble countertops and professional appliances -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Luxury kitchen design" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Chef's Kitchen</span>
+                    </div>
+                </div>
+                
+                <!-- A beautiful outdoor patio with comfortable seating and mountain views -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1519974719765-e6559eac2575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Outdoor patio with mountain views" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Outdoor Patio</span>
+                    </div>
+                </div>
+                
+                <!-- A peaceful garden setting with outdoor furniture and natural landscaping -->
+                <div class="relative group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Garden outdoor space" class="w-full h-64 object-cover rounded-lg gallery-image" />
+                    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                        <span class="text-white font-semibold">Garden Area</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nearby Attractions - Tabbed Interface -->
+    <section id="location" class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Explore the Area</h2>
+                <p class="text-xl text-muted-foreground">Discover amazing attractions and activities nearby</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Tab Navigation -->
+                <div class="flex flex-wrap justify-center mb-8 border-b border-border">
+                    <button class="tab-btn px-6 py-3 font-semibold border-b-2 border-primary text-primary" data-tab="outdoor">
+                        Outdoor Activities
+                    </button>
+                    <button class="tab-btn px-6 py-3 font-semibold border-b-2 border-transparent text-muted-foreground hover:text-primary" data-tab="dining">
+                        Dining & Entertainment
+                    </button>
+                    <button class="tab-btn px-6 py-3 font-semibold border-b-2 border-transparent text-muted-foreground hover:text-primary" data-tab="landmarks">
+                        Local Landmarks
+                    </button>
+                    <button class="tab-btn px-6 py-3 font-semibold border-b-2 border-transparent text-muted-foreground hover:text-primary" data-tab="culture">
+                        Arts & Culture
+                    </button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div id="outdoor" class="tab-content active">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- A dramatic mountain hiking trail with panoramic views -->
+                        <div class="bg-card rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Mountain hiking trail" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Summit Trail</h3>
+                                <p class="text-sm text-muted-foreground mb-2">5.2 miles • Moderate</p>
+                                <p class="text-sm">Breathtaking 360° mountain views</p>
+                            </div>
+                        </div>
+                        
+                        <!-- A scenic ski resort with snow-covered slopes -->
+                        <div class="bg-card rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Ski resort slopes" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Alpine Ski Resort</h3>
+                                <p class="text-sm text-muted-foreground mb-2">12 minutes drive</p>
+                                <p class="text-sm">World-class skiing and snowboarding</p>
+                            </div>
+                        </div>
+                        
+                        <!-- A pristine mountain lake perfect for kayaking -->
+                        <div class="bg-card rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Mountain lake for kayaking" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Crystal Lake</h3>
+                                <p class="text-sm text-muted-foreground mb-2">8 minutes drive</p>
+                                <p class="text-sm">Kayaking, fishing, and swimming</p>
+                            </div>
+                        </div>
+                        
+                        <!-- A famous mountain landmark with historical significance -->
+                        <div class="bg-card rounded-lg overflow-hidden shadow-lg">
+                            <img src="https://pixabay.com/get/gb71ccf9538a4249c1ef2d3e70cbeede11814d9da7799b27a9c86da5e039a34a8e1fed21818b89fb8ac0902a0e8002a6f21492b60bb5a4a6cb4669819a5b77383_1280.jpg" alt="Historic mountain landmark" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2">Eagle's Peak</h3>
+                                <p class="text-sm text-muted-foreground mb-2">15 minutes hike</p>
+                                <p class="text-sm">Historic lookout point and wildlife viewing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="dining" class="tab-content">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-card rounded-lg p-6 shadow-lg">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-utensils text-accent text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Mountain View Bistro</h3>
+                            <p class="text-sm text-muted-foreground mb-2">Fine dining • 5 minutes</p>
+                            <p class="text-sm">Farm-to-table cuisine with panoramic views</p>
+                        </div>
+                        
+                        <div class="bg-card rounded-lg p-6 shadow-lg">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-beer text-accent text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Alpine Brewery</h3>
+                            <p class="text-sm text-muted-foreground mb-2">Craft beer • 8 minutes</p>
+                            <p class="text-sm">Local craft beers and pub fare</p>
+                        </div>
+                        
+                        <div class="bg-card rounded-lg p-6 shadow-lg">
+                            <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-music text-accent text-xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">The Lodge Bar</h3>
+                            <p class="text-sm text-muted-foreground mb-2">Live music • 10 minutes</p>
+                            <p class="text-sm">Cozy atmosphere with local musicians</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="landmarks" class="tab-content">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Historic Landmarks</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Old Mining Town</h4>
+                                        <p class="text-sm text-muted-foreground">Historic gold rush settlement - 20 minutes drive</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Pioneer Museum</h4>
+                                        <p class="text-sm text-muted-foreground">Local history and artifacts - 15 minutes drive</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Heritage Bridge</h4>
+                                        <p class="text-sm text-muted-foreground">19th century railway bridge - 12 minutes drive</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Natural Landmarks</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Thunder Falls</h4>
+                                        <p class="text-sm text-muted-foreground">150ft waterfall - 25 minutes hike</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Devil's Canyon</h4>
+                                        <p class="text-sm text-muted-foreground">Dramatic rock formations - 30 minutes drive</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                                    <div>
+                                        <h4 class="font-semibold">Sunrise Point</h4>
+                                        <p class="text-sm text-muted-foreground">Best sunrise views - 10 minutes hike</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="culture" class="tab-content">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-palette text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Art Gallery District</h3>
+                            <p class="text-sm text-muted-foreground">Local artists and rotating exhibitions</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-theater-masks text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Community Theater</h3>
+                            <p class="text-sm text-muted-foreground">Live performances and cultural events</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-store text-primary text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Artisan Market</h3>
+                            <p class="text-sm text-muted-foreground">Local crafts and handmade goods</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Calendar -->
+    <section class="py-20 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Check Availability</h2>
+                <p class="text-xl text-muted-foreground">Select your preferred dates</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-card rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Booking Calendar</h3>
+                        <div class="bg-muted p-6 rounded-lg">
+                            <div class="text-center mb-4">
+                                <h4 class="text-lg font-semibold">December 2024</h4>
+                            </div>
+                            <div class="grid grid-cols-7 gap-1 text-center text-sm">
+                                <div class="p-2 font-semibold">Sun</div>
+                                <div class="p-2 font-semibold">Mon</div>
+                                <div class="p-2 font-semibold">Tue</div>
+                                <div class="p-2 font-semibold">Wed</div>
+                                <div class="p-2 font-semibold">Thu</div>
+                                <div class="p-2 font-semibold">Fri</div>
+                                <div class="p-2 font-semibold">Sat</div>
+                                
+                                <div class="p-2 text-muted-foreground">1</div>
+                                <div class="p-2 text-muted-foreground">2</div>
+                                <div class="p-2 text-muted-foreground">3</div>
+                                <div class="p-2 text-muted-foreground">4</div>
+                                <div class="p-2 text-muted-foreground">5</div>
+                                <div class="p-2 text-muted-foreground">6</div>
+                                <div class="p-2 text-muted-foreground">7</div>
+                                
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">8</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">9</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">10</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">11</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">12</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">13</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">14</div>
+                                
+                                <div class="p-2 bg-primary text-primary-foreground rounded">15</div>
+                                <div class="p-2 bg-primary text-primary-foreground rounded">16</div>
+                                <div class="p-2 bg-primary text-primary-foreground rounded">17</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">18</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">19</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">20</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">21</div>
+                                
+                                <div class="p-2 bg-destructive/20 text-destructive rounded cursor-not-allowed">22</div>
+                                <div class="p-2 bg-destructive/20 text-destructive rounded cursor-not-allowed">23</div>
+                                <div class="p-2 bg-destructive/20 text-destructive rounded cursor-not-allowed">24</div>
+                                <div class="p-2 bg-destructive/20 text-destructive rounded cursor-not-allowed">25</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">26</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">27</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">28</div>
+                                
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">29</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">30</div>
+                                <div class="p-2 hover:bg-primary hover:text-primary-foreground rounded cursor-pointer">31</div>
+                            </div>
+                            
+                            <div class="mt-4 text-xs space-y-1">
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-primary rounded mr-2"></div>
+                                    <span>Selected dates</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-3 h-3 bg-destructive/20 rounded mr-2"></div>
+                                    <span>Unavailable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Booking Summary</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between py-2 border-b border-border">
+                                <span>Check-in:</span>
+                                <span class="font-semibold">Dec 15, 2024</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-border">
+                                <span>Check-out:</span>
+                                <span class="font-semibold">Dec 17, 2024</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-border">
+                                <span>Guests:</span>
+                                <span class="font-semibold">4 adults</span>
+                            </div>
+                            <div class="flex justify-between py-2 border-b border-border">
+                                <span>Nights:</span>
+                                <span class="font-semibold">2</span>
+                            </div>
+                            
+                            <div class="space-y-2 pt-4">
+                                <div class="flex justify-between">
+                                    <span>$299 × 2 nights</span>
+                                    <span>$598</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Cleaning fee</span>
+                                    <span>$75</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Service fee</span>
+                                    <span>$45</span>
+                                </div>
+                                <div class="flex justify-between text-lg font-semibold pt-2 border-t border-border">
+                                    <span>Total</span>
+                                    <span>$718</span>
+                                </div>
+                            </div>
+                            
+                            <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg font-semibold mt-6 transition-all">
+                                Reserve Now
+                            </button>
+                            
+                            <p class="text-center text-sm text-muted-foreground">You won't be charged yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews & Testimonials -->
+    <section id="reviews" class="py-20 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Guest Reviews</h2>
+                <div class="flex items-center justify-center mb-4">
+                    <div class="flex text-accent text-2xl mr-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-xl font-semibold">4.9 out of 5</span>
+                    <span class="text-muted-foreground ml-2">(148 reviews)</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold mr-3">
+                            SM
+                        </div>
+                        <div>
+                            <div class="font-semibold">Sarah Martinez</div>
+                            <div class="text-sm text-muted-foreground">December 2024</div>
+                        </div>
+                    </div>
+                    <div class="flex text-accent mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted-foreground">"Absolutely stunning property! The mountain views are breathtaking and the amenities are top-notch. Perfect for a romantic getaway. The hot tub under the stars was magical."</p>
+                </div>
+                
+                <div class="bg-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold mr-3">
+                            RJ
+                        </div>
+                        <div>
+                            <div class="font-semibold">Robert Johnson</div>
+                            <div class="text-sm text-muted-foreground">November 2024</div>
+                        </div>
+                    </div>
+                    <div class="flex text-accent mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted-foreground">"Our family had an incredible week here. The kids loved the space and we adults appreciated the luxury touches. Great location for hiking and the kitchen was perfect for family meals."</p>
+                </div>
+                
+                <div class="bg-card p-6 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold mr-3">
+                            EW
+                        </div>
+                        <div>
+                            <div class="font-semibold">Emily Watson</div>
+                            <div class="text-sm text-muted-foreground">October 2024</div>
+                        </div>
+                    </div>
+                    <div class="flex text-accent mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted-foreground">"Exceeded all expectations! The property is even more beautiful in person. Host was incredibly responsive and helpful. Already planning our return visit for next year."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="py-20 bg-muted">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-foreground mb-4">Get in Touch</h2>
+                    <p class="text-xl text-muted-foreground">Have questions? We'd love to hear from you.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Location</h4>
+                                    <p class="text-muted-foreground">1234 Mountain View Drive<br>Alpine Valley, CO 80424</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Phone</h4>
+                                    <p class="text-muted-foreground">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <p class="text-muted-foreground">info@mountainretreat.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Response Time</h4>
+                                    <p class="text-muted-foreground">Usually within 2 hours<br>Available 24/7 for emergencies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-card p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6">Send us a Message</h3>
+                        <form class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">First Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="John">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="Doe">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="john@example.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="+1 (555) 123-4567">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Preferred Dates</label>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="date" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent">
+                                    <input type="date" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" placeholder="Tell us about your stay preferences, special requests, or any questions you have..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg font-semibold transition-all">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Manual - Bottom -->
+    <section id="facilities-bottom" class="py-16 bg-background">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-foreground mb-4">Property Manual</h2>
+                <p class="text-xl text-muted-foreground">Important information for your stay</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-key text-primary mr-3"></i>
+                        Check-in & Check-out
+                    </h3>
+                    <div class="space-y-3 text-muted-foreground">
+                        <p><strong>Check-in:</strong> 4:00 PM - 10:00 PM</p>
+                        <p><strong>Check-out:</strong> 11:00 AM</p>
+                        <p><strong>Self Check-in:</strong> Keypad entry (code provided)</p>
+                        <p><strong>Early/Late:</strong> Available upon request</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-home text-primary mr-3"></i>
+                        House Rules
+                    </h3>
+                    <div class="space-y-3 text-muted-foreground">
+                        <p><strong>Guests:</strong> Maximum 8 people</p>
+                        <p><strong>Smoking:</strong> Strictly prohibited</p>
+                        <p><strong>Pets:</strong> Welcome ($50 cleaning fee)</p>
+                        <p><strong>Parties:</strong> No large gatherings</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-exclamation-triangle text-primary mr-3"></i>
+                        Safety & Emergency
+                    </h3>
+                    <div class="space-y-3 text-muted-foreground">
+                        <p><strong>Emergency:</strong> Call 911</p>
+                        <p><strong>Fire Extinguisher:</strong> Kitchen & each bedroom</p>
+                        <p><strong>First Aid:</strong> Master bathroom cabinet</p>
+                        <p><strong>Property Manager:</strong> +1 (555) 123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-tools text-primary mr-3"></i>
+                        Appliances & Equipment
+                    </h3>
+                    <div class="space-y-3 text-muted-foreground">
+                        <p><strong>WiFi Password:</strong> MountainView2024</p>
+                        <p><strong>Hot Tub:</strong> Controls in utility room</p>
+                        <p><strong>Fireplace:</strong> Remote on mantle</p>
+                        <p><strong>TV/Sound:</strong> Instructions in living room</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-foreground text-background py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold text-primary mb-4">
+                        <i class="fas fa-mountain mr-2"></i>
+                        Mountain Retreat
+                    </div>
+                    <p class="text-background/80 mb-4">Experience luxury in the heart of the Rocky Mountains.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-background/60 hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-background/60 hover:text-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-background/60 hover:text-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2">
+                        <a href="#overview" class="block text-background/80 hover:text-primary transition-colors">Overview</a>
+                        <a href="#gallery" class="block text-background/80 hover:text-primary transition-colors">Gallery</a>
+                        <a href="#location" class="block text-background/80 hover:text-primary transition-colors">Location</a>
+                        <a href="#reviews" class="block text-background/80 hover:text-primary transition-colors">Reviews</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2">
+                        <a href="#contact" class="block text-background/80 hover:text-primary transition-colors">Contact Us</a>
+                        <a href="#" class="block text-background/80 hover:text-primary transition-colors">FAQ</a>
+                        <a href="#" class="block text-background/80 hover:text-primary transition-colors">Cancellation Policy</a>
+                        <a href="#" class="block text-background/80 hover:text-primary transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-background/80">
+                        <p>1234 Mountain View Drive</p>
+                        <p>Alpine Valley, CO 80424</p>
+                        <p>+1 (555) 123-4567</p>
+                        <p>info@mountainretreat.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-background/20 mt-8 pt-8 text-center">
+                <p class="text-background/60">&copy; 2024 Mountain Retreat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTop" class="floating-btn bg-primary hover:bg-primary/90 text-primary-foreground w-12 h-12 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        (function() {
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active classes
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('border-primary', 'text-primary');
+                        btn.classList.add('border-transparent', 'text-muted-foreground');
+                    });
+                    
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active classes
+                    button.classList.add('border-primary', 'text-primary');
+                    button.classList.remove('border-transparent', 'text-muted-foreground');
+                    
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+            
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Form validation placeholder
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission logic
+                    alert('Thank you for your message! We will get back to you soon.');
+                });
+            }
+            
+            // Gallery lightbox placeholder
+            document.querySelectorAll('.gallery-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    // TODO: Implement lightbox functionality
+                    console.log('Gallery image clicked:', this.alt);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

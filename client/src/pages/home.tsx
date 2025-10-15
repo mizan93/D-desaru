@@ -45,6 +45,7 @@ import {
   Drama,
   Store
 } from "lucide-react";
+import background from '../image/Desaru-Coast-Malaysia.jpg';
 
 export default function HomePage() {
   const { toast } = useToast();
@@ -161,7 +162,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen bg-cover bg-center parallax" style={{backgroundImage: "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"}}>
+      <section className="relative h-screen bg-cover bg-center parallax" style={{backgroundImage: `url(${background})`}}>
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative container mx-auto px-4 h-full flex items-center">
           <div className="max-w-3xl text-white">

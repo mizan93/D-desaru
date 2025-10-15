@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Villa - Luxury Property Rental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "system-ui", "sans-serif"],
+                }
+            },
+        }
+    };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --background: hsl(0 0% 98%);
+            --foreground: hsl(220 9% 20%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(220 9% 20%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(220 9% 20%);
+            --primary: hsl(355 71% 67%);
+            --primary-foreground: hsl(0 0% 100%);
+            --secondary: hsl(210 7% 56%);
+            --secondary-foreground: hsl(0 0% 100%);
+            --muted: hsl(210 8% 95%);
+            --muted-foreground: hsl(220 9% 46%);
+            --accent: hsl(48 100% 67%);
+            --accent-foreground: hsl(220 9% 20%);
+            --destructive: hsl(0 85% 60%);
+            --destructive-foreground: hsl(0 0% 100%);
+            --border: hsl(214 13% 91%);
+            --input: hsl(214 13% 91%);
+            --ring: hsl(355 71% 67%);
+            --radius: 8px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 8px;
+            height: 400px;
+        }
+        
+        .gallery-main {
+            grid-row: 1 / 3;
+        }
+        
+        .hover-scale {
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+                height: auto;
+            }
+            
+            .gallery-main {
+                grid-row: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-sans">
+    <!-- @COMPONENT: Header -->
+    <header class="bg-card shadow-sm border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-home text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-foreground">StayVilla</span>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Browse</a>
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Host</a>
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">Help</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="text-muted-foreground hover:text-foreground">
+                        <i class="fas fa-user-circle text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- @COMPONENT: PropertyHero -->
+        <section class="mb-8">
+            <div class="mb-6">
+                <h1 class="text-3xl lg:text-4xl font-bold text-foreground mb-2">Sunset Villa - Luxury Retreat</h1>
+                <div class="flex items-center space-x-4 text-muted-foreground">
+                    <div class="flex items-center space-x-1">
+                        <i class="fas fa-star text-accent"></i>
+                        <span class="font-medium">4.9</span>
+                        <span>(127 reviews)</span>
+                    </div>
+                    <span>•</span>
+                    <span class="underline">Malibu, California</span>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="gallery-grid rounded-lg overflow-hidden">
+                <!-- Modern living room interior panoramic view -->
+                <div class="gallery-main">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&h=800" 
+                         alt="Modern living room with panoramic windows" 
+                         class="w-full h-full object-cover hover-scale cursor-pointer">
+                </div>
+                <!-- Cozy bedroom with natural lighting -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200" 
+                         alt="Cozy bedroom with natural lighting" 
+                         class="w-full h-full object-cover hover-scale cursor-pointer">
+                </div>
+                <!-- Luxury bedroom with modern design -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200" 
+                         alt="Luxury bedroom with modern design" 
+                         class="w-full h-full object-cover hover-scale cursor-pointer">
+                </div>
+                <!-- Gourmet kitchen with island and modern appliances -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200" 
+                         alt="Gourmet kitchen with island and modern appliances" 
+                         class="w-full h-full object-cover hover-scale cursor-pointer">
+                </div>
+                <!-- Contemporary kitchen with breakfast bar -->
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=200" 
+                         alt="Contemporary kitchen with breakfast bar" 
+                         class="w-full h-full object-cover hover-scale cursor-pointer">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                        <button class="bg-card text-foreground px-4 py-2 rounded-lg font-medium hover:bg-muted transition-colors">
+                            <i class="fas fa-th-large mr-2"></i>Show all 12 photos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- @END_COMPONENT: PropertyHero -->
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- @COMPONENT: PropertyDetails -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Property Overview -->
+                <section>
+                    <div class="border-b border-border pb-6">
+                        <h2 class="text-2xl font-semibold mb-4">Entire villa hosted by Sarah</h2>
+                        <div class="flex items-center space-x-6 text-muted-foreground">
+                            <span>8 guests</span>
+                            <span>•</span>
+                            <span>4 bedrooms</span>
+                            <span>•</span>
+                            <span>6 beds</span>
+                            <span>•</span>
+                            <span>3.5 baths</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Property Features -->
+                <section>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-home text-primary mt-1"></i>
+                            <div>
+                                <h3 class="font-medium">Entire home</h3>
+                                <p class="text-muted-foreground">You'll have the villa to yourself.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-broom text-primary mt-1"></i>
+                            <div>
+                                <h3 class="font-medium">Enhanced Clean</h3>
+                                <p class="text-muted-foreground">This host committed to enhanced cleaning protocol.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <div>
+                                <h3 class="font-medium">Great location</h3>
+                                <p class="text-muted-foreground">95% of recent guests gave the location a 5-star rating.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Description -->
+                <section>
+                    <div class="border-b border-border pb-6">
+                        <p class="text-foreground leading-relaxed">
+                            Experience luxury living in this stunning oceanfront villa perched on the cliffs of Malibu. 
+                            This architectural masterpiece offers breathtaking panoramic views of the Pacific Ocean, 
+                            complemented by sophisticated modern design and premium amenities. The open-concept living 
+                            spaces flow seamlessly from indoor to outdoor areas, creating the perfect environment for 
+                            relaxation and entertainment.
+                        </p>
+                        <button class="text-primary underline font-medium mt-3 hover:text-primary/80 transition-colors">
+                            Show more
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Amenities -->
+                <section>
+                    <h2 class="text-2xl font-semibold mb-6">What this place offers</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-water text-muted-foreground"></i>
+                            <span>Ocean view</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-swimming-pool text-muted-foreground"></i>
+                            <span>Private pool</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-utensils text-muted-foreground"></i>
+                            <span>Full kitchen</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-wifi text-muted-foreground"></i>
+                            <span>Free WiFi</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-car text-muted-foreground"></i>
+                            <span>Free parking</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-fire text-muted-foreground"></i>
+                            <span>Fireplace</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-wind text-muted-foreground"></i>
+                            <span>Air conditioning</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-tv text-muted-foreground"></i>
+                            <span>Smart TV</span>
+                        </div>
+                    </div>
+                    <button class="mt-6 px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
+                        Show all 28 amenities
+                    </button>
+                </section>
+
+                <!-- Calendar -->
+                <section>
+                    <h2 class="text-2xl font-semibold mb-6">Select check-in date</h2>
+                    <div class="border border-border rounded-lg p-6">
+                        <div class="text-center text-muted-foreground">
+                            <i class="fas fa-calendar-alt text-4xl mb-4"></i>
+                            <p>Add your travel dates for exact pricing</p>
+                            <button class="mt-4 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors">
+                                Check availability
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reviews -->
+                <section>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fas fa-star text-accent"></i>
+                        <h2 class="text-2xl font-semibold">4.9 · 127 reviews</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-center">
+                                <span>Cleanliness</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-11/12 h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">4.9</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Accuracy</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-full h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">5.0</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Check-in</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-11/12 h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">4.8</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between items-center">
+                                <span>Communication</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-full h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">5.0</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Location</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-11/12 h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">4.9</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Value</span>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-24 h-1 bg-muted rounded-full">
+                                        <div class="w-5/6 h-full bg-foreground rounded-full"></div>
+                                    </div>
+                                    <span class="text-sm">4.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50&q=80" 
+                                     alt="Guest profile" class="w-10 h-10 rounded-full object-cover">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="font-medium">Michael</span>
+                                        <span class="text-muted-foreground text-sm">October 2023</span>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm leading-relaxed">
+                                        Absolutely stunning property with incredible ocean views. Sarah was an excellent host 
+                                        and the villa exceeded all expectations. Perfect for a romantic getaway!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <img src="https://pixabay.com/get/g199d347253790ec48b0f64b23cc1748baed99830a2e60bb0edd1b1734d9654d44a400cf8a3f8341020c8f0dafbd3d55c9ab10a1734badf61ce9366748fee7fb9_1280.jpg" 
+                                     alt="Guest profile" class="w-10 h-10 rounded-full object-cover">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-1">
+                                        <span class="font-medium">Jennifer</span>
+                                        <span class="text-muted-foreground text-sm">September 2023</span>
+                                    </div>
+                                    <p class="text-muted-foreground text-sm leading-relaxed">
+                                        The most beautiful place we've ever stayed! Every detail was perfect, from the 
+                                        modern amenities to the breathtaking sunset views from the outdoor patio.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-6 px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors">
+                        Show all 127 reviews
+                    </button>
+                </section>
+
+                <!-- Location -->
+                <section>
+                    <h2 class="text-2xl font-semibold mb-6">Where you'll be</h2>
+                    <div class="rounded-lg overflow-hidden bg-muted h-64 flex items-center justify-center text-muted-foreground">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-4xl mb-2"></i>
+                            <p>Interactive map would load here</p>
+                            <p class="text-sm">Malibu, California, United States</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="font-medium mb-2">About this area</h3>
+                        <p class="text-muted-foreground">
+                            Located in the heart of Malibu, this villa offers easy access to pristine beaches, 
+                            world-class dining, and scenic hiking trails. Just minutes from Zuma Beach and 
+                            Point Dume State Beach.
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <!-- @END_COMPONENT: PropertyDetails -->
+
+            <!-- @COMPONENT: BookingCard -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-8">
+                    <div class="bg-card border border-border rounded-xl p-6 shadow-lg">
+                        <div class="flex items-baseline space-x-2 mb-6">
+                            <span class="text-2xl font-bold">$450</span>
+                            <span class="text-muted-foreground">night</span>
+                        </div>
+
+                        <form class="space-y-4" data-implementation="Form should validate dates and guest count before submission">
+                            <div class="grid grid-cols-2 gap-0 border border-border rounded-lg overflow-hidden">
+                                <div class="p-3 border-r border-border">
+                                    <label class="block text-xs font-medium text-muted-foreground mb-1">CHECK-IN</label>
+                                    <input type="date" class="w-full text-sm bg-transparent border-none outline-none focus:ring-0" data-mock="true">
+                                </div>
+                                <div class="p-3">
+                                    <label class="block text-xs font-medium text-muted-foreground mb-1">CHECKOUT</label>
+                                    <input type="date" class="w-full text-sm bg-transparent border-none outline-none focus:ring-0" data-mock="true">
+                                </div>
+                            </div>
+
+                            <div class="border border-border rounded-lg p-3">
+                                <label class="block text-xs font-medium text-muted-foreground mb-1">GUESTS</label>
+                                <select class="w-full text-sm bg-transparent border-none outline-none focus:ring-0" data-mock="true">
+                                    <option>1 guest</option>
+                                    <option>2 guests</option>
+                                    <option>3 guests</option>
+                                    <option>4 guests</option>
+                                    <option>5 guests</option>
+                                    <option>6 guests</option>
+                                    <option>7 guests</option>
+                                    <option>8 guests</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors" data-event="click:handleBooking">
+                                Reserve
+                            </button>
+                        </form>
+
+                        <p class="text-center text-muted-foreground text-sm mt-4">
+                            You won't be charged yet
+                        </p>
+
+                        <div class="mt-6 space-y-3">
+                            <div class="flex justify-between">
+                                <span class="underline">$450 x 5 nights</span>
+                                <span>$2,250</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="underline">Cleaning fee</span>
+                                <span>$85</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="underline">Service fee</span>
+                                <span>$165</span>
+                            </div>
+                            <hr class="border-border">
+                            <div class="flex justify-between font-semibold">
+                                <span>Total before taxes</span>
+                                <span>$2,500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Host Information -->
+                    <div class="mt-8 bg-card border border-border rounded-xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=60&q=80" 
+                                 alt="Host Sarah" class="w-12 h-12 rounded-full object-cover">
+                            <div class="flex-1">
+                                <h3 class="font-semibold">Hosted by Sarah</h3>
+                                <p class="text-muted-foreground text-sm">Superhost · 3 years hosting</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 space-y-3">
+                            <div class="flex items-center space-x-2 text-sm">
+                                <i class="fas fa-star text-accent"></i>
+                                <span>327 reviews</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-sm">
+                                <i class="fas fa-shield-alt text-primary"></i>
+                                <span>Identity verified</span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 px-4 py-2 border border-border rounded-lg font-medium hover:bg-muted transition-colors" data-event="click:contactHost">
+                            Contact host
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_COMPONENT: BookingCard -->
+        </div>
+
+        <!-- @COMPONENT: ContactForm -->
+        <section class="mt-16 bg-card border border-border rounded-xl p-8">
+            <h2 class="text-2xl font-semibold mb-6 text-center">Have questions? Get in touch</h2>
+            <form class="max-w-md mx-auto space-y-4" data-implementation="Should validate email format and required fields">
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Name</label>
+                    <input type="text" class="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" data-mock="true">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Email</label>
+                    <input type="email" class="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" data-mock="true">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-muted-foreground mb-2">Message</label>
+                    <textarea rows="4" class="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-ring focus:border-transparent" data-mock="true"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-primary text-primary-foreground py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors" data-event="click:submitContact">
+                    Send Message
+                </button>
+            </form>
+        </section>
+        <!-- @END_COMPONENT: ContactForm -->
+    </main>
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-muted mt-16 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Safety information</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Cancellation options</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Community</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Diversity & Belonging</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Accessibility</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">StayVilla Associates</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Host</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Host your home</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Host responsibly</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Community Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">StayVilla</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Press</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">New features</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-muted-foreground text-sm">© 2024 StayVilla, Inc. All rights reserved.</p>
+                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Gallery interaction placeholder
+            document.querySelectorAll('.gallery-grid img').forEach(img => {
+                img.addEventListener('click', function() {
+                    // TODO: Implement lightbox gallery functionality
+                    console.log('Open lightbox for image:', this.alt);
+                });
+            });
+
+            // Form validation placeholders
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission logic
+                    console.log('Form submission intercepted for:', this);
+                });
+            });
+
+            // Sticky booking card behavior
+            const bookingCard = document.querySelector('.sticky');
+            if (bookingCard && window.innerWidth >= 1024) {
+                // TODO: Implement advanced sticky positioning if needed
+            }
+        })();
+    </script>
+</body>
+</html>
