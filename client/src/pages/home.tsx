@@ -105,10 +105,10 @@ export default function HomePage() {
     <>
       {/* Navigation Header */}
       <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-1">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold text-primary flex items-center">
-              <Mountain className="mr-2 h-8 w-8" />
+              <img src={image.logo} className="mr-2 h-20 w-20 object-cover rounded-full" />
               D'Desaru
             </div>
             <div className="hidden md:flex space-x-8">
@@ -929,8 +929,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="text-2xl font-bold text-primary mb-4 flex items-center">
-                <Mountain className="mr-2 h-8 w-8" />
-                Mountain Retreat
+                {/* img src={image.logo} className="mr-2 h-20 w-20 object-cover rounded-full" */}
+                <img src={image.logo} className="mr-2 h-20 w-20" />
+                D'Desaru
               </div>
               <p className="text-background/80 mb-4" data-testid="text-footer-description">Experience luxury in the heart of the Rocky Mountains.</p>
               <div className="flex space-x-4">
