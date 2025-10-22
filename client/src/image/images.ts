@@ -8,5 +8,6 @@ import bathroom from './bathroom.jpg'
 import bedroom from './bedroom.jfif'
 import bedroom2 from './bedroom2.jpg'
 import bedroom3 from './bedroom3.jpg'
+import playground from './playground.png'
 
-export default { background, waterpark, logo, crocfarm, tour, livinghall, bathroom, bedroom, bedroom2, bedroom3 };
+export default { background, waterpark, logo, crocfarm, tour, livinghall, bathroom, bedroom, bedroom2, bedroom3, playground };

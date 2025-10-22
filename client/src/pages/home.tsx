@@ -47,6 +47,7 @@ import {
 } from "lucide-react";
 // import background from '../image/Desaru-Coast-Malaysia.jpg';
 import image from '../image/images';
+import images from "../image/images";
 
 export default function HomePage() {
   const { toast } = useToast();
@@ -108,7 +109,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-1">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold text-primary flex items-center">
-              <img src={image.logo} className="mr-2 h-20 w-20 object-cover rounded-full" />
+              <img src={image.logo} alt="D'Desaru logo" className="mr-2 h-20 w-20 object-cover rounded-full" />
               D'Desaru
             </div>
             <div className="hidden md:flex space-x-8">
@@ -300,7 +301,7 @@ export default function HomePage() {
             
             <div className="space-y-4">
               <img 
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                src={image.livinghall}
                 alt="Luxury living room with mountain views" 
                 className="rounded-xl shadow-lg w-full h-auto gallery-image" 
                 data-testid="img-overview-main"
@@ -320,12 +321,12 @@ export default function HomePage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Modern living room", label: "Living Room" },
-              { src: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Elegant living space", label: "Entertainment Area" },
+              { src: image.livinghall, alt: "Modern living room", label: "Living Room" },
+              { src: image.playground, alt: "Elegant living space", label: "Entertainment Area" },
               { src: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Bright modern living room", label: "Open Living Space" },
               { src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Minimalist living room", label: "Lounge Area" },
-              { src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Serene guest bedroom", label: "Guest Bedroom" },
-              { src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Bedroom with mountain views", label: "Mountain View Room" },
+              { src: image.bedroom, alt: "Serene guest bedroom", label: "Guest Bedroom" },
+              { src: image.bedroom2, alt: "Bedroom with mountain views", label: "Mountain View Room" },
               { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Modern gourmet kitchen", label: "Gourmet Kitchen" },
               { src: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Luxury kitchen design", label: "Chef's Kitchen" },
               { src: "https://images.unsplash.com/photo-1519974719765-e6559eac2575?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400", alt: "Outdoor patio with mountain views", label: "Outdoor Patio" },
