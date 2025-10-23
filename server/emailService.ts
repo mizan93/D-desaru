@@ -73,8 +73,8 @@ export async function sendNewInquiryNotification(inquiry: Inquiry): Promise<bool
   `;
 
   return await sendEmail({
-    to: 'info@mountainretreat.com', // Replace with your email
-    from: 'noreply@mountainretreat.com', // Replace with your verified sender
+    to: 'ndeprise16@gmail.com', // Replace with your email
+    from: 'ahmadhamizan522@yahoo.com', // Replace with your verified sender
     subject: `New Airbnb Inquiry from ${inquiry.firstName} ${inquiry.lastName}`,
     text: emailText,
     html: emailHtml
