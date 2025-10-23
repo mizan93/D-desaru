@@ -687,7 +687,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Location</h4>
-                      <p className="text-muted-foreground" data-testid="text-address">1234 Mountain View Drive<br />Alpine Valley, CO 80424</p>
+                      <p className="text-muted-foreground" data-testid="text-address">6, Kemboja 7, Taman Sri Penawar<br />Desaru, 81930 Johor</p>
                     </div>
                   </div>
                   
@@ -697,7 +697,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-muted-foreground" data-testid="text-phone">+1 (555) 123-4567</p>
+                      <p className="text-muted-foreground" data-testid="text-phone">+60142770607</p>
                     </div>
                   </div>
                   
@@ -707,7 +707,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="text-muted-foreground" data-testid="text-email">info@mountainretreat.com</p>
+                      <p className="text-muted-foreground" data-testid="text-email">ndeprise.16@gmail.com</p>
                     </div>
                   </div>
                   
