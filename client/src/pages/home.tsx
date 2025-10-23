@@ -974,10 +974,10 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold mb-4" data-testid="text-contact-info-footer">Contact Info</h4>
               <div className="space-y-2 text-background/80">
-                <p data-testid="text-footer-address">1234 Mountain View Drive</p>
-                <p data-testid="text-footer-city">Alpine Valley, CO 80424</p>
-                <p data-testid="text-footer-phone">+1 (555) 123-4567</p>
-                <p data-testid="text-footer-email">info@mountainretreat.com</p>
+                <p data-testid="text-footer-address">6, Kemboja 7, Taman Sri Penawar</p>
+                <p data-testid="text-footer-city">Desaru, 81930 Johor</p>
+                <p data-testid="text-footer-phone">+60142770607</p>
+                <p data-testid="text-footer-email">ndeprise.16@gmail.com</p>
               </div>
             </div>
           </div>
