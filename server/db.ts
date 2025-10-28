@@ -12,7 +12,7 @@ if (!process.env.DATABASE_URL) {
 //     "DATABASE_URL must be set. Did you forget to provision a database?",
 //   );
 console.warn("DATABASE_URL not set — using dummy value for preview mode.");
-  process.env.DATABASE_URL = "postgresql://user:pass@localhost:5432/dummydb";
+  process.env.DATABASE_URL = "postgresql://postgres:LEDChpNeBHlgWbRUNpLFGRvxvPlrPhHv@postgres.railway.internal:5432/railway";
 }
 
 export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
