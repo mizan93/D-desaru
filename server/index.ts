@@ -67,9 +67,9 @@ app.use((req, res, next) => {
   //   // reusePort: true,
   // }, () => {
   //   log(`serving on http://localhost: ${port}`);
-  // const isDev = app.get("env") === "development";
-  // const host = isDev ? "localhost" : "0.0.0.0";
-  const host ="0.0.0.0";
+  const isDev = app.get("env") === "development";
+  const host = isDev ? "localhost" : "0.0.0.0";
+  // const host ="0.0.0.0";
 
   server.listen({ port, host }, () => {
     log(`Server running at http://${host}:${port}`);

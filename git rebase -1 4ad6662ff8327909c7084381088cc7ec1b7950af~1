@@ -1,0 +1,192 @@
+[33mcommit 84f5fad553d812754836e4006fab1355560ebf5f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Tue Oct 28 15:57:32 2025 +0800
+
+    add .env in .gitignore
+
+[33mcommit ca198e0be22716cfe7426f53290e6d9e0761dca4[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Tue Oct 28 15:55:15 2025 +0800
+
+    Remove .env from repo
+
+[33mcommit 4ad6662ff8327909c7084381088cc7ec1b7950af[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Tue Oct 28 15:50:20 2025 +0800
+
+    add sendgrid_API_key in .env file and create a "test.cjs" file
+
+[33mcommit f73376cf51eaf3d49e0bc8175c9453d5e0f325ed[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Tue Oct 28 13:40:14 2025 +0800
+
+    remove the localhost in a host
+
+[33mcommit ae66d450512c9c6d6da39c2ab0a39f61c72e3005[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Tue Oct 28 11:10:31 2025 +0800
+
+    change varchar to uuid for ID column
+
+[33mcommit 956b8106d174f33e032570e722f891b16bbfcd41[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Thu Oct 23 15:38:09 2025 +0800
+
+    update contact info at the bottom of the page
+
+[33mcommit 7ba92237a159393aeed87fafad28a6a18bb6db58[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Thu Oct 23 15:20:15 2025 +0800
+
+    update contact information
+
+[33mcommit f0940ce537386e53957ba29b7bd50ae73f2e380b[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Thu Oct 23 15:04:20 2025 +0800
+
+    replace the emails
+
+[33mcommit 839638d927f1cea3a657a8cbdeaba9d3a85ebbd8[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 22 14:34:30 2025 +0800
+
+    preview added
+
+[33mcommit 7c20a614722e324252bf2e42855a8f67e6db0b42[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 14:23:32 2025 +0800
+
+    change the name
+
+[33mcommit 20972b7030a7acebfac881a5b0d19df29c8da626[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 14:22:12 2025 +0800
+
+    Change the logo
+
+[33mcommit af8fe1a4033f385c958fa679f98a6b2c618f299d[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 14:06:33 2025 +0800
+
+    Change the attraction places
+
+[33mcommit 8f34875d31560906e02ca21b798c1136d9d6a864[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 13:48:49 2025 +0800
+
+    create image file and import into home
+
+[33mcommit 2f42de2c97fe4a565eaf18b1ed1fa3146ab98b04[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 12:58:58 2025 +0800
+
+    change the currency $ - RM
+
+[33mcommit 7a49c88a864c4e3d6c19b6834ebebdb25b6821f9[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 12:56:05 2025 +0800
+
+    change the text-hero-titel and description
+
+[33mcommit 4761ffd4ad172e7f6b0d9bd5a5cbdb0dd73ce6de[m
+Author: Hamizan <ahmad.hamizan.bin.hamzah@hp.com>
+Date:   Wed Oct 15 11:21:17 2025 +0800
+
+    change the background image
+
+[33mcommit be96558fb8e0db3cd93af91a330fbbfd28ce8a01[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 07:15:30 2025 +0000
+
+    Refine layout and add interactive elements for improved user experience
+    
+    Update CSS and JavaScript files to enhance the visual presentation and interactivity of the website.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: full_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/sBI9Txr
+
+[33mcommit 62badbda00da05ebff344e14fc3938f74a8ab092[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 07:15:09 2025 +0000
+
+    Add admin authentication and improve error handling
+    
+    Includes JWT token authentication for admin requests via `apiRequest` and implements automatic logout on 401 errors in `AdminPage`. Also improves the error display on the admin page.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: intermediate_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/sBI9Txr
+
+[33mcommit 2769dcd506611e3042f8a6eadc0d8db05b6a1491[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 07:11:22 2025 +0000
+
+    Add password protection to the admin inquiries page
+    
+    Implement an admin login system with password authentication and token-based authorization for accessing the inquiries endpoint.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: intermediate_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/sBI9Txr
+
+[33mcommit 84c67af14fa6ddee16ac7bda2f3af80ca6ba61e3[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 06:47:46 2025 +0000
+
+    Add an admin interface for managing guest inquiries
+    
+    Introduces a new admin page accessible via '/admin' route. This page displays guest inquiries with filtering options, and includes a link from the homepage for easy access. The admin page fetches and renders inquiry data using React Query, with loading and error states handled.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: intermediate_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/sBI9Txr
+
+[33mcommit 4fee2775dc50d0a0056fa0a331434048efe54dcd[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 06:46:28 2025 +0000
+
+    Add email notifications for new property inquiries
+    
+    Integrate SendGrid to send email notifications for new inquiries received through the property website.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: intermediate_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/sBI9Txr
+
+[33mcommit 0972e4ebaa8df9813e03d5f530243e86e7c020e4[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Thu Sep 11 06:44:09 2025 +0000
+
+    Update website with property details and social media links
+    
+    Integrates database storage for inquiries, updates property name to D'Desaru, adds social media links with correct URLs, and ensures proper handling of form input values for dates and phone numbers.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: intermediate_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/auuJCtP
+
+[33mcommit 7fd350e5eb81eaab826d8157e0d3a2d8c590d0a7[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Wed Sep 10 10:10:10 2025 +0000
+
+    Add back-to-top button and improve UI component accessibility
+    
+    Implement a floating back-to-top button that appears when users scroll down the page. This enhancement improves navigation by allowing quick return to the top. Additionally, this commit includes numerous updates to various UI components, likely focusing on accessibility and usability.
+    
+    Replit-Commit-Author: Agent
+    Replit-Commit-Session-Id: dcbdb555-c2ba-4bf2-8d2b-82d930a55805
+    Replit-Commit-Checkpoint-Type: full_checkpoint
+    Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/7b23013e-51a4-43df-be03-e3c35dbcb5c5/dcbdb555-c2ba-4bf2-8d2b-82d930a55805/auuJCtP
+
+[33mcommit 779f9af2d8b0ce999829c9032c6c5c96aa193b1b[m
+Author: ahmadhamizan21 <47433465-ahmadhamizan21@users.noreply.replit.com>
+Date:   Wed Sep 10 10:05:34 2025 +0000
+
+    Initial commit

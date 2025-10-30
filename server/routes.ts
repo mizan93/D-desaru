@@ -13,12 +13,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const inquiry = await storage.createInquiry(validatedData);
       
       // Send email notification
-      try {
-        await sendNewInquiryNotification(inquiry);
-      } catch (emailError) {
-        console.error("Failed to send email notification:", emailError);
+      // try {
+      //   await sendNewInquiryNotification(inquiry);
+      // } catch (emailError) {
+      //   console.error("Failed to send email notification:", emailError);
         // Don't fail the request if email fails
-      }
+      // }
       
       res.json({ success: true, inquiry });
     } catch (error) {
@@ -29,9 +29,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           details: error.errors 
         });
       } else {
+        console.error("Error message:",error.message);
+        console.error("Error stack:",error.stack);
         res.status(500).json({ 
-          success: false, 
-          error: "Failed to create inquiry" 
+          success: false,
+          error: error.message || "Failed to create inquiry" 
         });
       }
     }
