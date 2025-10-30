@@ -15,7 +15,7 @@ neonConfig.webSocketConstructor = ws;
 
 //
 
-if (!process.env.DATABASE_URL) {
+if (!process.env.DATABASE_PUBLIC_URL) {
  throw new Error(
     "DATABASE_URL must be set. Did you forget to provision a database?",
   );
@@ -27,5 +27,5 @@ if (!process.env.DATABASE_URL) {
 // console.log(`Attempting to connect to database: ${dbUrl.substring(0, 20)}...`);
 // NOTE: dbUrl is guaranteed to be a 'string' here, not 'undefined'.
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+export const pool = new Pool({ connectionString: process.env.DATABASE_PUBLIC_URL });
 export const db = drizzle({ client: pool, schema });
