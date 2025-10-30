@@ -29,8 +29,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           details: error.errors 
         });
       } else {
-        console.error("Error message:",error.message);
-        console.error("Error stack:",error.stack);
+        console.error("💥 Error creating inquiry:");
+        console.error("Full error object:", JSON.stringify(error, null, 2));
+        console.error("Error message:", error.message);
+        console.error("Error stack:", error.stack);
         res.status(500).json({ 
           success: false,
           error: error.message || "Failed to create inquiry" 
